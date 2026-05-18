@@ -1,0 +1,39 @@
+[submodule "shared"]
+	path = shared
+	url = git@github.com:suenot/w-popularity-shared.git
+[submodule "parsers/youtube"]
+	path = parsers/youtube
+	url = git@github.com:suenot/w-popularity-parser-youtube.git
+[submodule "parsers/x"]
+	path = parsers/x
+	url = git@github.com:suenot/w-popularity-parser-x.git
+[submodule "parsers/telegram"]
+	path = parsers/telegram
+	url = git@github.com:suenot/w-popularity-parser-telegram.git
+[submodule "parsers/facebook"]
+	path = parsers/facebook
+	url = git@github.com:suenot/w-popularity-parser-facebook.git
+[submodule "parsers/instagram"]
+	path = parsers/instagram
+	url = git@github.com:suenot/w-popularity-parser-instagram.git
+[submodule "parsers/linkedin"]
+	path = parsers/linkedin
+	url = git@github.com:suenot/w-popularity-parser-linkedin.git
+[submodule "parsers/habr"]
+	path = parsers/habr
+	url = git@github.com:suenot/w-popularity-parser-habr.git
+[submodule "parsers/stackoverflow"]
+	path = parsers/stackoverflow
+	url = git@github.com:suenot/w-popularity-parser-stackoverflow.git
+[submodule "parsers/tbank-pulse"]
+	path = parsers/tbank-pulse
+	url = git@github.com:suenot/w-popularity-parser-tbank-pulse.git
+[submodule "parsers/smartlab"]
+	path = parsers/smartlab
+	url = git@github.com:suenot/w-popularity-parser-smartlab.git
+[submodule "backend"]
+	path = backend
+	url = git@github.com:suenot/w-popularity-backend.git
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:suenot/w-popularity-frontend.git

@@ -1,0 +1,16 @@
+go 1.25.0
+
+use (
+	./backend
+	./parsers/facebook
+	./parsers/habr
+	./parsers/instagram
+	./parsers/linkedin
+	./parsers/smartlab
+	./parsers/stackoverflow
+	./parsers/tbank-pulse
+	./parsers/telegram
+	./parsers/x
+	./parsers/youtube
+	./shared
+)
