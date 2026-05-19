@@ -62,10 +62,19 @@ services:
       - "3000:3000"
 
   camoufox:
-    image: ghcr.io/daijro/camoufox:latest
+    build:
+      context: ./camoufox
+      dockerfile: Dockerfile
     restart: unless-stopped
     ports:
+      # 3000 is the frontend's, so we expose camoufox on 3001 host-side.
+      # Inside the docker network backend reaches it via http://camoufox:3000.
       - "3001:3000"
+      # VNC for the one-time interactive login flow. Only useful when the
+      # operator runs `docker compose --profile scraping run --rm -p 5900:5900 camoufox …`.
+      - "5900:5900"
+    volumes:
+      - ./data/camoufox-profiles:/data/profiles
     profiles:
       - scraping
 

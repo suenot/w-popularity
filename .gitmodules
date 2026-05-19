@@ -40,3 +40,6 @@
 [submodule "parsers/reddit"]
 	path = parsers/reddit
 	url = git@github.com:suenot/w-popularity-parser-reddit.git
+[submodule "camoufox"]
+	path = camoufox
+	url = git@github.com:suenot/w-popularity-camoufox.git

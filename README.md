@@ -22,6 +22,7 @@ w_popularity/
 ├── frontend/             # submodule: w-popularity-frontend
 ├── backend/              # submodule: w-popularity-backend
 ├── shared/               # submodule: w-popularity-shared
+├── camoufox/             # submodule: w-popularity-camoufox  (stealth HTTP wrapper)
 └── parsers/
     ├── youtube/          # submodule: w-popularity-parser-youtube
     ├── x/                # submodule: w-popularity-parser-x
@@ -77,6 +78,51 @@ Cross-channel: total reach, platform mix %, HHI concentration.
 | Stack Overflow | Stack Exchange API | — |
 | T-Bank Pulse | Public JSON | camoufox |
 | Smart-Lab | HTML scrape | camoufox |
+
+## camoufox (stealth scraping)
+
+LinkedIn and Facebook personal-profile pages don't expose follower counts
+to anonymous HTTP and reject most server-side bot fingerprints. The
+`camoufox/` submodule is a FastAPI wrapper around the
+[camoufox](https://github.com/daijro/camoufox) stealth Firefox fork that
+parsers call via `POST /fetch` to get fully-rendered, post-login HTML.
+
+### One-time login per platform
+
+The container persists cookies per-profile under `data/camoufox-profiles/`.
+You log in once interactively via VNC; production fetches reuse the saved
+profile silently.
+
+```bash
+# 1. build the image
+docker compose --profile scraping build camoufox
+
+# 2. LinkedIn login — run headed with VNC exposed
+docker compose --profile scraping run --rm -p 5900:5900 camoufox \
+    python login_helper.py linkedin https://www.linkedin.com/login
+
+# 3. on macOS, attach to the VNC session
+open vnc://localhost:5900
+# complete the login (handle 2FA / captchas as you would in a real browser),
+# then close the browser window — the helper saves cookies to
+# data/camoufox-profiles/linkedin/.
+
+# 4. same for Facebook
+docker compose --profile scraping run --rm -p 5900:5900 camoufox \
+    python login_helper.py facebook https://www.facebook.com/login
+```
+
+### Production usage
+
+```bash
+docker compose --profile scraping up -d camoufox backend frontend postgres
+curl -sf http://localhost:3001/healthz   # {"ok":true}
+```
+
+The `CAMOUFOX_URL` env var (defaulted to `http://camoufox:3000` in
+`.env.example`) is read by the LinkedIn and Facebook parsers. When set,
+those parsers POST target URLs to the wrapper and parse the returned HTML
+through their existing extractors.
 
 ## License
 
