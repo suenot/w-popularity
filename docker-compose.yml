@@ -67,6 +67,8 @@ services:
     build:
       context: ./camoufox
       dockerfile: Dockerfile
+      args:
+        GITHUB_TOKEN: ${GITHUB_TOKEN:-}
     restart: unless-stopped
     ports:
       # 3000 is the frontend's, so we expose camoufox on 3001 host-side.
