@@ -13,5 +13,6 @@ use (
 	./parsers/x
 	./parsers/youtube
 	./parsers/reddit
+	./parsers/github
 	./shared
 )

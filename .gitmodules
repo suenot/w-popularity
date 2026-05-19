@@ -43,3 +43,6 @@
 [submodule "camoufox"]
 	path = camoufox
 	url = git@github.com:suenot/w-popularity-camoufox.git
+[submodule "parsers/github"]
+	path = parsers/github
+	url = git@github.com:suenot/w-popularity-parser-github.git

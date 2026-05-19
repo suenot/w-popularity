@@ -43,6 +43,7 @@ CHANNELS=(
   "tbank_pulse|profit_maker|https://www.tbank.ru/invest/social/profile/profit_maker/?author=profile"
   "smartlab|suenot|https://smart-lab.ru/my/suenot/"
   "reddit|suenot|https://www.reddit.com/user/suenot/"
+  "github|suenot|https://github.com/suenot"
 )
 
 ok=0; fail=0
