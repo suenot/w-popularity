@@ -12,6 +12,8 @@ services:
       - "3040:3000"
 
   camoufox:
+    # Production camoufox: only HTTP wrapper. VNC port (5900) is mapped on
+    # demand by `docker compose --profile scraping run -p 5900:5900 camoufox`
+    # for the login_helper flow.
     ports: !override
       - "3011:3000"
-      - "5900:5900"
