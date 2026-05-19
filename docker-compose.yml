@@ -39,7 +39,9 @@ services:
       FACEBOOK_ACCESS_TOKEN: ${FACEBOOK_ACCESS_TOKEN}
       INSTAGRAM_ACCESS_TOKEN: ${INSTAGRAM_ACCESS_TOKEN}
       STACKEXCHANGE_KEY: ${STACKEXCHANGE_KEY}
-      CAMOUFOX_URL: ${CAMOUFOX_URL:-http://camoufox:3000}
+      LINKEDIN_LI_AT: ${LINKEDIN_LI_AT}
+      LINKEDIN_JSESSIONID: ${LINKEDIN_JSESSIONID}
+      CAMOUFOX_URL: ${CAMOUFOX_URL:-}
     ports:
       - "${BACKEND_PORT:-8080}:8080"
 
@@ -47,12 +49,15 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8080}
+        NEXT_PUBLIC_AUTH_URL: ${NEXT_PUBLIC_AUTH_URL:-https://auth.marketmaker.cc/api/v1}
     restart: unless-stopped
     depends_on:
       - backend
     environment:
       NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8080}
-      NEXT_PUBLIC_AUTH_URL: ${NEXT_PUBLIC_AUTH_URL:-https://auth.marketmaker.cc}
+      NEXT_PUBLIC_AUTH_URL: ${NEXT_PUBLIC_AUTH_URL:-https://auth.marketmaker.cc/api/v1}
     ports:
       - "3000:3000"
 

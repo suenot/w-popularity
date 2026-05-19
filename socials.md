@@ -13,6 +13,10 @@
 
 ## Telegram
 - https://t.me/suenot_dev
+- https://t.me/klavaorgwork
+- https://t.me/klavaorg
+- https://t.me/klavaorg_keyboards
+- https://t.me/marketmaker_cc
 
 ## Instagram
 - https://www.instagram.com/evgeniy.soloviov/
@@ -31,3 +35,6 @@
 
 ## Smart-Lab
 - https://smart-lab.ru/my/suenot/
+
+## Reddit
+- https://www.reddit.com/user/suenot/

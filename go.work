@@ -12,5 +12,6 @@ use (
 	./parsers/telegram
 	./parsers/x
 	./parsers/youtube
+	./parsers/reddit
 	./shared
 )

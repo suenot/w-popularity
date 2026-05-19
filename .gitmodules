@@ -37,3 +37,6 @@
 [submodule "frontend"]
 	path = frontend
 	url = git@github.com:suenot/w-popularity-frontend.git
+[submodule "parsers/reddit"]
+	path = parsers/reddit
+	url = git@github.com:suenot/w-popularity-parser-reddit.git
