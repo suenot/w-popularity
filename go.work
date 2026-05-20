@@ -14,5 +14,6 @@ use (
 	./parsers/youtube
 	./parsers/reddit
 	./parsers/github
+	./parsers/marketmaker-auth
 	./shared
 )

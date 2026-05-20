@@ -46,3 +46,6 @@
 [submodule "parsers/github"]
 	path = parsers/github
 	url = git@github.com:suenot/w-popularity-parser-github.git
+[submodule "parsers/marketmaker-auth"]
+	path = parsers/marketmaker-auth
+	url = git@github.com:suenot/w-popularity-parser-marketmaker-auth.git
