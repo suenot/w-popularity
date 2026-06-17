@@ -11,6 +11,13 @@
 services:
   postgres:
     ports: !override []          # keep Postgres internal to the compose network
+    networks:
+      default:
+        # Unique alias: the backend is attached to the shared `web` overlay
+        # (for Traefik), where other stacks also run a service named
+        # `postgres`. Resolve our DB by a unique name to avoid that clash.
+        aliases:
+          - popularity-postgres
 
   backend:
     ports: !override []
