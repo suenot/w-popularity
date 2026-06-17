@@ -40,10 +40,13 @@ services:
       INSTAGRAM_ACCESS_TOKEN: ${INSTAGRAM_ACCESS_TOKEN}
       STACKEXCHANGE_KEY: ${STACKEXCHANGE_KEY}
       GITHUB_TOKEN: ${GITHUB_TOKEN}
+      DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN}
       REDDIT_BEARER_TOKEN: ${REDDIT_BEARER_TOKEN}
       LINKEDIN_LI_AT: ${LINKEDIN_LI_AT}
       LINKEDIN_JSESSIONID: ${LINKEDIN_JSESSIONID}
       CAMOUFOX_URL: ${CAMOUFOX_URL:-}
+      INSECURE_SKIP_AUTH: ${INSECURE_SKIP_AUTH:-false}
+      DEV_USER_ID: ${DEV_USER_ID:-dev-local}
     ports:
       - "${BACKEND_PORT:-8080}:8080"
 
@@ -54,6 +57,7 @@ services:
       args:
         NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8080}
         NEXT_PUBLIC_AUTH_URL: ${NEXT_PUBLIC_AUTH_URL:-https://auth.marketmaker.cc/api/v1}
+        NEXT_PUBLIC_INSECURE_SKIP_AUTH: ${INSECURE_SKIP_AUTH:-false}
     restart: unless-stopped
     depends_on:
       - backend

@@ -1,0 +1,61 @@
+# Production override for popularity.marketmaker.cc.
+#
+# Ingress is the shared Traefik instance (external `web` network, TLS via
+# Let's Encrypt). No host ports are published in prod — Traefik reaches the
+# containers over the `web` network. Requires Docker Compose >= 2.24 for the
+# `!override` reset of the dev port mappings.
+#
+# Usage on the server (from the prod checkout, with a real .env):
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml build
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+services:
+  postgres:
+    ports: !override []          # keep Postgres internal to the compose network
+
+  backend:
+    ports: !override []
+    networks:
+      - default
+      - web
+    environment:
+      INSECURE_SKIP_AUTH: "false"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web"
+      - "traefik.http.routers.popularity-backend.rule=Host(`popularity.marketmaker.cc`) && (PathPrefix(`/api`) || Path(`/healthz`))"
+      - "traefik.http.routers.popularity-backend.entrypoints=websecure"
+      - "traefik.http.routers.popularity-backend.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.popularity-backend.priority=20"
+      - "traefik.http.services.popularity-backend.loadbalancer.server.port=8080"
+
+  frontend:
+    ports: !override []
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # Next.js bakes NEXT_PUBLIC_* at build time — these must be the public
+        # prod URLs, not localhost. The frontend talks to the backend at the
+        # same host under /api/v1 (Traefik routes /api -> backend).
+        NEXT_PUBLIC_API_URL: "https://popularity.marketmaker.cc"
+        NEXT_PUBLIC_AUTH_URL: "https://auth.marketmaker.cc/api/v1"
+        NEXT_PUBLIC_INSECURE_SKIP_AUTH: "false"
+    networks:
+      - default
+      - web
+    environment:
+      NEXT_PUBLIC_API_URL: "https://popularity.marketmaker.cc"
+      NEXT_PUBLIC_AUTH_URL: "https://auth.marketmaker.cc/api/v1"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web"
+      - "traefik.http.routers.popularity-frontend.rule=Host(`popularity.marketmaker.cc`)"
+      - "traefik.http.routers.popularity-frontend.entrypoints=websecure"
+      - "traefik.http.routers.popularity-frontend.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.popularity-frontend.priority=10"
+      - "traefik.http.services.popularity-frontend.loadbalancer.server.port=3000"
+
+networks:
+  web:
+    external: true
+    name: web

@@ -44,6 +44,7 @@ CHANNELS=(
   "smartlab|suenot|https://smart-lab.ru/my/suenot/"
   "reddit|suenot|https://www.reddit.com/user/suenot/"
   "github|suenot|https://github.com/suenot"
+  "marketmaker_auth|marketmaker|https://auth.marketmaker.cc"
 )
 
 ok=0; fail=0

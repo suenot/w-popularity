@@ -1,51 +1,57 @@
 [submodule "shared"]
 	path = shared
-	url = git@github.com:suenot/w-popularity-shared.git
+	url = git@github.com:suenot/socials-auto.git
 [submodule "parsers/youtube"]
 	path = parsers/youtube
-	url = git@github.com:suenot/w-popularity-parser-youtube.git
+	url = git@github.com:suenot/youtube-auto.git
 [submodule "parsers/x"]
 	path = parsers/x
-	url = git@github.com:suenot/w-popularity-parser-x.git
+	url = git@github.com:suenot/x-auto.git
 [submodule "parsers/telegram"]
 	path = parsers/telegram
-	url = git@github.com:suenot/w-popularity-parser-telegram.git
+	url = git@github.com:suenot/telegram-auto.git
 [submodule "parsers/facebook"]
 	path = parsers/facebook
-	url = git@github.com:suenot/w-popularity-parser-facebook.git
+	url = git@github.com:suenot/facebook-auto.git
 [submodule "parsers/instagram"]
 	path = parsers/instagram
-	url = git@github.com:suenot/w-popularity-parser-instagram.git
+	url = git@github.com:suenot/instagram-auto.git
 [submodule "parsers/linkedin"]
 	path = parsers/linkedin
-	url = git@github.com:suenot/w-popularity-parser-linkedin.git
+	url = git@github.com:suenot/linkedin-auto.git
 [submodule "parsers/habr"]
 	path = parsers/habr
-	url = git@github.com:suenot/w-popularity-parser-habr.git
+	url = git@github.com:suenot/habr-auto.git
 [submodule "parsers/stackoverflow"]
 	path = parsers/stackoverflow
-	url = git@github.com:suenot/w-popularity-parser-stackoverflow.git
+	url = git@github.com:suenot/stackoverflow-auto.git
 [submodule "parsers/tbank-pulse"]
 	path = parsers/tbank-pulse
-	url = git@github.com:suenot/w-popularity-parser-tbank-pulse.git
+	url = git@github.com:suenot/tbank-pulse-auto.git
 [submodule "parsers/smartlab"]
 	path = parsers/smartlab
-	url = git@github.com:suenot/w-popularity-parser-smartlab.git
+	url = git@github.com:suenot/smartlab-auto.git
 [submodule "backend"]
 	path = backend
-	url = git@github.com:suenot/w-popularity-backend.git
+	url = git@github.com:suenot/popularity-backend.git
 [submodule "frontend"]
 	path = frontend
-	url = git@github.com:suenot/w-popularity-frontend.git
+	url = git@github.com:suenot/popularity-frontend.git
 [submodule "parsers/reddit"]
 	path = parsers/reddit
-	url = git@github.com:suenot/w-popularity-parser-reddit.git
+	url = git@github.com:suenot/reddit-auto.git
 [submodule "camoufox"]
 	path = camoufox
-	url = git@github.com:suenot/w-popularity-camoufox.git
+	url = git@github.com:suenot/popularity-camoufox.git
 [submodule "parsers/github"]
 	path = parsers/github
-	url = git@github.com:suenot/w-popularity-parser-github.git
+	url = git@github.com:suenot/github-auto.git
 [submodule "parsers/marketmaker-auth"]
 	path = parsers/marketmaker-auth
-	url = git@github.com:suenot/w-popularity-parser-marketmaker-auth.git
+	url = git@github.com:suenot/marketmaker-auth-auto.git
+[submodule "parsers/discord"]
+	path = parsers/discord
+	url = git@github.com:suenot/discord-auto.git
+[submodule "parsers/github-repo"]
+	path = parsers/github-repo
+	url = git@github.com:suenot/github-repo-auto.git

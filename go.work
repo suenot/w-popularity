@@ -15,5 +15,7 @@ use (
 	./parsers/reddit
 	./parsers/github
 	./parsers/marketmaker-auth
+	./parsers/discord
+	./parsers/github-repo
 	./shared
 )

@@ -6,6 +6,12 @@ services:
   backend:
     ports: !override
       - "8082:8080"
+    volumes:
+      # Host-built linux/arm64 binary (go.work resolves discord + github-repo
+      # parser replaces that the Docker build context can't reach). Rebuild with:
+      #   cd backend && GOOS=linux GOARCH=arm64 CGO_ENABLED=0 \
+      #     go build -trimpath -ldflags='-s -w' -o /tmp/w_popularity_api ./cmd/api
+      - /tmp/w_popularity_api:/app/api:ro
 
   frontend:
     ports: !override

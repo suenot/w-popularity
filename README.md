@@ -19,21 +19,21 @@ w_popularity/
 ├── go.work               # Go multi-module workspace
 ├── docker-compose.yml
 ├── socials.md
-├── frontend/             # submodule: w-popularity-frontend
-├── backend/              # submodule: w-popularity-backend
-├── shared/               # submodule: w-popularity-shared
-├── camoufox/             # submodule: w-popularity-camoufox  (stealth HTTP wrapper)
+├── frontend/             # submodule: popularity-frontend
+├── backend/              # submodule: popularity-backend
+├── shared/               # submodule: socials-auto
+├── camoufox/             # submodule: popularity-camoufox  (stealth HTTP wrapper)
 └── parsers/
-    ├── youtube/          # submodule: w-popularity-parser-youtube
-    ├── x/                # submodule: w-popularity-parser-x
-    ├── telegram/         # submodule: w-popularity-parser-telegram
-    ├── facebook/         # submodule: w-popularity-parser-facebook
-    ├── instagram/        # submodule: w-popularity-parser-instagram
-    ├── linkedin/         # submodule: w-popularity-parser-linkedin
-    ├── habr/             # submodule: w-popularity-parser-habr
-    ├── stackoverflow/    # submodule: w-popularity-parser-stackoverflow
-    ├── tbank-pulse/      # submodule: w-popularity-parser-tbank-pulse
-    └── smartlab/         # submodule: w-popularity-parser-smartlab
+    ├── youtube/          # submodule: youtube-auto
+    ├── x/                # submodule: x-auto
+    ├── telegram/         # submodule: telegram-auto
+    ├── facebook/         # submodule: facebook-auto
+    ├── instagram/        # submodule: instagram-auto
+    ├── linkedin/         # submodule: linkedin-auto
+    ├── habr/             # submodule: habr-auto
+    ├── stackoverflow/    # submodule: stackoverflow-auto
+    ├── tbank-pulse/      # submodule: tbank-pulse-auto
+    └── smartlab/         # submodule: smartlab-auto
 ```
 
 ## Quick start
